@@ -274,59 +274,10 @@
 
     newGame();
   </script>
-</body>
-  <script>
-  // ★自分のFirebase構成を貼り付けてください★
-  const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_AUTH_DOMAIN",
-    projectId: "YOUR_PROJECT_ID"
-    // ...必要な項目
-  };
-  firebase.initializeApp(firebaseConfig);
 
-  // ログイン処理
-  document.getElementById('loginBtn').onclick = function() {
-    const email = document.getElementById('email').value;
-    const pass = document.getElementById('password').value;
-    firebase.auth().signInWithEmailAndPassword(email, pass)
-      .then(userCredential => {
-        document.getElementById('userInfo').textContent = "ログイン中: " + userCredential.user.email;
-      })
-      .catch(error => {
-        alert("ログイン失敗: " + error.message);
-      });
-  };
 
-  // 新規登録処理
-  document.getElementById('registerBtn').onclick = function() {
-    const email = document.getElementById('email').value;
-    const pass = document.getElementById('password').value;
-    firebase.auth().createUserWithEmailAndPassword(email, pass)
-      .then(userCredential => {
-        alert("登録完了！そのままログインしました");
-        document.getElementById('userInfo').textContent = "ログイン中: " + userCredential.user.email;
-      })
-      .catch(error => {
-        alert("新規登録失敗: " + error.message);
-      });
-  };
+  
 
-  // ログイン状態の監視
-  firebase.auth().onAuthStateChanged(user => {
-    if (user) {
-      document.getElementById('userInfo').textContent = "ログイン中: " + user.email;
-    } else {
-      document.getElementById('userInfo').textContent = "";
-    }
-  });
-    </head>
-<body>
-  <h1>2048風ゲーム</h1>
-  <button id="loginBtn">Googleでログイン</button>
-  <div id="game"></div>
-  <button id="retryBtn" style="display:none;">もう一度遊ぶ</button>
-  <p>矢印キーで操作</p>
   <script>
     const size = 4;
     let board = Array(size).fill().map(() => Array(size).fill(0));
@@ -430,5 +381,4 @@
 
     newGame();
   </script>
-</script>
 </html>
