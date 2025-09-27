@@ -194,9 +194,9 @@
     if (messageEl.style.display==='flex') return;
     let moved=false;
     if (e.key==='ArrowLeft') moved = move(0);
-    else if (e.key==='ArrowUp') moved = move(1);
+    else if (e.key==='ArrowUp') moved = move(3);
     else if (e.key==='ArrowRight') moved = move(2);
-    else if (e.key==='ArrowDown') moved = move(3);
+    else if (e.key==='ArrowDown') moved = move(1);
     if (moved) e.preventDefault();
   });
 
